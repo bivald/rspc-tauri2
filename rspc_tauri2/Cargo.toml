@@ -10,21 +10,20 @@ documentation = "https://rspc.dev"
 keywords = ["async", "specta", "rust-to-ts", "typescript", "typesafe"]
 categories = ["web-programming", "asynchronous"]
 
-# /bin/sh RUSTDOCFLAGS="--cfg docsrs2" cargo +nightly doc --all-features
 [package.metadata."docs.rs"]
 all-features = true
 rustdoc-args = [
     "--cfg",
     "docsrs2",
-] # TODO: Rename to `docsrs` once Tokio fixes https://github.com/tokio-rs/tokio/pull/6360
+]
 
-# TODO: Cleanup deps
 [dependencies]
-rspc = { version = "0.2.0" }
+rspc = { git = "https://github.com/oscartbeaumont/rspc", rev = "c57fa59a4369a4e64a5322dd7eb0cf3992b57ab1" }
 serde = { version = "1.0.197", features = ["derive"] }
 serde_json = "1.0.114"
 thiserror = "1.0.58"
 futures = "0.3.30"
 tokio = { version = "1.36.0", features = ["sync", "rt", "macros"] }
-tauri = { version = "2.0.0-rc.15" }
+tauri = { version = "2.0.2" }
 tracing = "0.1.40"
+specta = { version = "1.0.5", features = ["typescript"] }
